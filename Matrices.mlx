@@ -1,0 +1,28 @@
+clc;clear;
+archivo = 'imagen1.jpg';
+
+im1 = imread(archivo);
+
+imshow(im1);
+size(im1)
+im1(1,1,:)  % componentes de color del primer pixel
+numel(im1); % cantitad total de pixeles
+% Al tanteo mostrar solamente la cabeza
+% c = im1(31:91,36:110,:); % Valores encontrados con Paint
+c = im1(120:160,5:30,:);
+
+imshow(c)
+p_x = 1; % columna
+p_y = 130; % fila
+r = 12;
+% mano = circulo(im1,p_x,p_y,r);
+ancho = 50;
+alto  = 25;
+mano = recuadro(im1,p_x,p_y,ancho,alto);
+imshow(mano)
+mano2 = rgb2gray(mano);
+imshow(mano2)
+imshow(mano2')
+imshow(flip(mano2,2))
+imshow(255-mano2)
+size(mano2)
